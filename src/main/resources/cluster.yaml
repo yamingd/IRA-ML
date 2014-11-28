@@ -1,0 +1,45 @@
+fields: UserId,WorkCity,Hometown,Sex,Body,Marriage,Smoking,Drinking,Children,WantChildren,House,Salary,Height,Education,IsValid,Occupation,Vehicle,age,Belief,Constellation,BloodType,Family,Photo,CorpType,Animals,Stock,Praise
+f_categories: Marriage,Salary,Education,Body,CorpType,WantChildren,Animals,Vehicle,House,Smoking,Drinking,Occupation,Belief,Constellation,BloodType,CorpType,Animals,Stock
+
+datafiles:
+  city: hdfs://10.10.10.16:9000/ml/city.txt
+  user: hdfs://10.10.10.16:9000/ml/uinfo/user.txt
+ranges:
+  - age, 10, 100
+  - height, 100, 200
+  - sex, 0, 1
+  - marriage, 1, 10
+output: hdfs://10.10.10.16:9000/ml/cluster
+clusters: figure,spiritual,life,work,highlight
+figure:
+  - age
+  - height
+  - praise
+  - body
+  - bloodType
+
+spiritual:
+  - animals
+  - belief
+  - constellation
+  - stock
+
+life:
+  - smoking
+  - drinking
+  - house
+  - vehicle
+
+work:
+  - occupation
+  - salary
+  - corpType
+  - education
+
+highlight:
+  - salary
+  - house
+  - vehicle
+
+job:
+  mapreduce.map.java.opts: -Xmx1024m

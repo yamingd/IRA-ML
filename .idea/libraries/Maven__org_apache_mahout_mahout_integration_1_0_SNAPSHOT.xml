@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Maven: org.apache.mahout:mahout-integration:1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/mahout/mahout-integration/1.0-SNAPSHOT/mahout-integration-1.0-20140517.011530-94.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/mahout/mahout-integration/1.0-SNAPSHOT/mahout-integration-1.0-20140517.011530-94-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../mahout-trunk/integration/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../mahout-trunk/integration/src/test/java" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/mahout/mahout-integration/1.0-SNAPSHOT/mahout-integration-1.0-20140517.011530-94-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

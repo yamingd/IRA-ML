@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="Maven: org.apache.mahout:mahout-math:1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/mahout/mahout-math/1.0-SNAPSHOT/mahout-math-1.0-20140517.010333-97.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/mahout/mahout-math/1.0-SNAPSHOT/mahout-math-1.0-20140517.010333-97-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../mahout-trunk/math/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../mahout-trunk/math/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../mahout-trunk/math/target/generated-sources/mahout" />
+      <root url="file://$PROJECT_DIR$/../mahout-trunk/math/target/generated-test-sources/mahout" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/mahout/mahout-math/1.0-SNAPSHOT/mahout-math-1.0-20140517.010333-97-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Maven: org.apache.mahout:mahout-mrlegacy:1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/mahout/mahout-mrlegacy/1.0-SNAPSHOT/mahout-mrlegacy-1.0-20140517.011416-12.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/mahout/mahout-mrlegacy/1.0-SNAPSHOT/mahout-mrlegacy-1.0-20140517.011416-12-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../mahout-trunk/mrlegacy/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../mahout-trunk/mrlegacy/src/test/java" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/mahout/mahout-mrlegacy/1.0-SNAPSHOT/mahout-mrlegacy-1.0-20140517.011416-12-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

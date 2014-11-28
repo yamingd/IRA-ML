@@ -1,0 +1,51 @@
+org.apache.mahout.clustering.kmeans.KMeansDriver#buildClusters
+
+org.apache.mahout.clustering.kmeans.Kluster
+org.apache.mahout.clustering.iterator.DistanceMeasureCluster#pdf
+org.apache.mahout.common.distance.SquaredEuclideanDistanceMeasure#distance(org.apache.mahout.math.Vector, org.apache.mahout.math.Vector)
+
+org.apache.mahout.clustering.iterator.KMeansClusteringPolicy
+org.apache.mahout.clustering.classify.ClusterClassifier
+
+org.apache.mahout.math.RandomAccessSparseVector
+org.apache.mahout.math.Vector#getDistanceSquared
+
+K-Means迭代过程:
+org.apache.mahout.clustering.kmeans.KMeansDriver#buildClusters
+org.apache.mahout.clustering.iterator.ClusterIterator#iterateMR
+
+org.apache.mahout.clustering.iterator.CIMapper
+
+0. 读取上次计算的中心Vector和Policy, 若是第一次的话，则是随机的中心Vector
+1. 对每条记录VX计算其和各个中心的相似性(距离的倒数)
+   (org.apache.mahout.clustering.iterator.AbstractClusteringPolicy#classify)
+   (org.apache.mahout.clustering.iterator.DistanceMeasureCluster#pdf)
+   得到一个概率向量PVx
+2. 选择PVx中值最大的作为候选分类Cluster-i
+   org.apache.mahout.clustering.iterator.AbstractClusteringPolicy#select
+3. 应用记录VX到选中的Cluster-i
+   VX + S1
+   VX * VX + S2
+   org.apache.mahout.clustering.AbstractCluster#observe(org.apache.mahout.math.Vector)
+
+在Mapper结束时把每个Cluster在这个Mapper的训练结果输出到CIReducer<ClusterId,Cluster>操作
+
+org.apache.mahout.clustering.iterator.CIReducer
+0. 读取上次计算的中心Vector和Policy, 若是第一次的话，则是随机的中心Vector
+1. 对每个Mapper的结果Cluster做S0, S1, S2操作累加操作
+   S0为Vector个数，S1为Vector的和，S2为Vector的平方和
+2. 合并Cluster的各项参数
+   中心值为 S1 / S0
+   半径Radius-Vector
+3. 评估中心
+   org.apache.mahout.clustering.iterator.KMeansClusteringPolicy#close
+   org.apache.mahout.clustering.kmeans.Kluster#calculateConvergence
+   将本次的中心(S1 / S0) 和上次(center)的比较, 看是否小于等于convergenceDelta
+   若是则converged=true即本Cluster是稳定的了, 否则converged=false
+
+在Reducer结束后，输出到当前迭代目录
+
+一轮计算结束后，检查全部Cluster中心是否稳定了，若是则退出完成迭代，否则继续
+
+
+

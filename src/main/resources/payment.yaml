@@ -1,0 +1,27 @@
+fields: memberId,iszat,salary,sex,birthday,education,workcity,house,vehicle,marriage,paydate,regtime,logincount,telcount,telAvgTime,lostCount,microPayCount,microPayAmount,viewCount,sendLeerCount,sendAskCount,sendGiftCount,followCount,praiseCount,hnServiceCount,viewCount2,receiveLeerCount,receiveAskCount,receiveGiftCount,followCount2,praiseCount2,hnServiceCount2
+f_categories: iszat,salary,sex,education,workcity,house,vehicle,marriage
+f_ignore: workcity,paydate,regtime
+
+f_predictors: sex,birthday,salary,house,vehicle,marriage,logincount,telAvgTime,microPayCount,viewCount,sendLeerCount,sendAskCount,sendGiftCount,praiseCount,hnServiceCount,viewCount2,receiveLeerCount,receiveAskCount,receiveGiftCount,praiseCount2,hnServiceCount2
+f_target: iszat
+
+datafiles:
+  city: hdfs://10.10.10.16:9000/ml/city.txt
+  user: hdfs://10.10.10.16:9000/ml/uinfo/user.txt
+  pay: hdfs://10.10.10.16:9000/ml/actions/pay.txt
+
+output: hdfs://10.10.10.16:9000/ml/payment
+local: /home/hduser/payment
+logistic:
+  features: 1000
+  passes: 10
+  rate: 0.0001
+
+preduser: hdfs://10.10.10.16:9000/ml/actions/pay.txt
+
+forest:
+  nbTrees: 10
+  partial: false
+
+job:
+  mapreduce.map.java.opts: -Xmx1024m

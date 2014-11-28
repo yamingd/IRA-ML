@@ -1,0 +1,25 @@
+fields: channel,year,month,day,income0,income1,income2,income3,total
+f_categories: channel,year,month,day
+f_ignore: _ignore
+
+f_predictors: income0,income1,income2,income3
+
+target:
+  name: total
+
+datafiles:
+  city: hdfs://10.10.10.16:9000/ml/city.txt
+  roi: hdfs://10.10.10.16:9000/ml/actions/roi.txt
+
+output: hdfs://10.10.10.16:9000/ml/roi
+
+local: /home/hduser/roi
+
+logistic:
+  features: 1000
+  passes: 10
+  rate: 0.0001
+  categories: 1000
+
+job:
+  mapreduce.map.java.opts: -Xmx1024m
